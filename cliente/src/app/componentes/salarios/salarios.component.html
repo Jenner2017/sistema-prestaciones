@@ -1,0 +1,66 @@
+<div *ngIf="estado">
+  <h3>Salarios de los empleados</h3>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Area</th>
+        <th>Salario</th>
+        <th>Editar Salario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados; let i=index">
+        <td>{{ i + 1}} </td>
+        <td>{{ empleado.nombre1 }} </td>
+        <td>{{ empleado.apellido1 }} </td>
+        <td>{{ empleado.categoria }} </td>
+        <td>{{ empleado.salario || 'No tiene salario' }} </td>
+        <td>
+          <button class="btn btn-success" data-toggle="modal" data-target="#salario" (click)="editar(empleado)" >
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+<div *ngIf="!estado">
+  <h1>No hay Empleados disponibles</h1>
+</div>
+
+
+
+<div class="modal fade" id="salario" tabindex="-1" role="dialog" aria-labelledby="modal-salario" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-salario">Editar Salario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="salario">Salario</label>
+            <input 
+                  type="text"
+                  class="form-control"
+                  placeholder="3000"
+                  id="salario"
+                  name="salario"
+                  #salario="ngModel"
+                  [(ngModel)]="modelo.salario">
+          </div>
+          <button class="btn btn-primary" (click)="actualizarSalario()">Actualizar Salario</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+      </div>
+    </div>
+  </div>

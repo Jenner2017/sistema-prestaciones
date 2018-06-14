@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Agregar Usuario</div>
+        <div class="card-body">
+          <form #formulario="ngForm" (ngSubmit)="guardar(formulario);formulario.reset()">
+            <div class="form-group">
+              <label for="displayName">Nombre</label>
+              <input 
+                    type="text"
+                    name="displayName"
+                    #displayName="ngModel"
+                    [(ngModel)]="modelo.displayName"
+                    class="form-control"
+                    placeholder="Ingresa el nombre">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input 
+                    type="email"
+                    name="email"
+                    #email="ngModel"
+                    [(ngModel)]="modelo.email"
+                    class="form-control"
+                    placeholder="Ingresa el email">
+            </div>
+            <div class="form-group">
+                <label for="email">Password</label>
+                <input 
+                      type="password"
+                      name="password"
+                      #password="ngModel"
+                      [(ngModel)]="modelo.password"
+                      class="form-control"
+                      placeholder="Ingresa el password">
+              </div>
+              <button class="btn btn-primary" >Guardar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Registrado</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Operaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.signupDate | date }} </td>
+              <td>{{ usuario.displayName }} </td>
+              <td>{{ usuario.email }} </td>
+              <td>
+                <button class="btn btn-danger" (click)="eliminar(usuario._id)"><i class="fas fa-user-times"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

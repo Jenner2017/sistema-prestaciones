@@ -1,0 +1,230 @@
+<div class="card">
+  <div class="card-header">
+    <h4>Agregar Nuevo Empleado</h4>
+  </div>
+  <div class="card-body">
+    <form #formulario="ngForm" (ngSubmit)="guardar(formulario);formulario.reset()">
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="nombre1">Primer Nombre</label>
+              <input
+                    type="text"
+                    id="nombre1"
+                    name="nombre1"
+                    class="form-control"
+                    placeholder="Ingresa el primer nombre"
+                    #nombre1="ngModel"
+                    [(ngModel)]="modelo.nombre1"
+                    required>
+                <div [hidden]="nombre1.valid || nombre1.untouched" class="alert alert-danger">
+                  Este campo es requerido
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="nombre2">Segundo Nombre</label>
+              <input
+                    type="text"
+                    id="nombre2"
+                    name="nombre2"
+                    class="form-control"
+                    placeholder="Ingresa el segundo nombre"
+                    #nombre2="ngModel"
+                    [(ngModel)]="modelo.nombre2">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="apellido1">Primer Apellido</label>
+                <input
+                      type="text"
+                      id="apellido1"
+                      name="apellido1"
+                      class="form-control"
+                      placeholder="Ingresa el primer apellido"
+                      #apellido1="ngModel"
+                      [(ngModel)]="modelo.apellido1"
+                      required>
+                <div [hidden]="apellido1.valid || apellido2.untouched" class="alert alert-danger">
+                  Este campo es requerido
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellido2">Segundo Apellido</label>
+                <input
+                      type="text"
+                      id="apellido2"
+                      class="form-control"
+                      name="apellido2"
+                      placeholder="Ingresa el segundo apellido"
+                      #apellido2="ngModel"
+                      [(ngModel)]="modelo.apellido2"
+                      required>
+                <div [hidden]="apellido2.valid || apellido2.untouched" class="alert alert-danger">
+                  Este campo es requerido
+                </div>
+              </div>
+              
+      </div>
+      <div class="form-row">
+          <div class="form-group col-md-4">
+              <label for="fechaNac">Fecha de Nacimiento</label>
+              <input 
+                    type="date"
+                    id="fechaNac"
+                    name="fechaNac"
+                    class="form-control"
+                    #fechaNac="ngModel"
+                    [(ngModel)]="modelo.fechaNac"
+                    required>
+              <div [hidden]="fechaNac.valid || fechaNac.untouched" class="alert alert-danger">
+                  Este campo es requerido
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="nit">NIT</label>
+              <input 
+                    type="text"
+                    class="form-control"
+                    id="nit"
+                    name="nit"
+                    #nit="ngModel"
+                    [(ngModel)]="modelo.nit"
+                    required>
+              <div [hidden]="nit.valid || nit.untouched" class="alert alert-danger">
+                  Este campo es requerido
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="telefono">Telefono</label>
+              <input 
+                    type="text"
+                    class="form-control"
+                    id="telefono"
+                    name="telefono"
+                    #telefono="ngModel"
+                    [(ngModel)]="modelo.telefono"
+                    required>
+              <div [hidden]="telefono.valid || telefono.untouched" class="alert alert-danger">
+                  Este campo es requerido
+              </div>
+            </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="direccion">Direccion</label>
+            <input 
+                  type="text"
+                  placeholder="Ingresa tu direccion"
+                  class="form-control"
+                  id="direccion"
+                  name="direccion"
+                  #direccion="ngModel"
+                  [(ngModel)]="modelo.direccion"
+                  required>
+            <div [hidden]="direccion.valid || direccion.untouched" class="alert alert-danger">
+                  Este campo es requerido
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input 
+                type="email" 
+                name="email" 
+                id="email"
+                placeholder="ejemplo@gmail.com"
+                class="form-control"
+                #email="ngModel"
+                [(ngModel)]="modelo.email"
+                required>
+          <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+             Este campo es requerido
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <div class="form-check">
+            <input 
+                  type="radio"
+                  class="form-check-input" 
+                  name="sexo" 
+                  id="hombre"
+                  #hombre="ngModel"
+                  [(ngModel)]="modelo.hombre"
+                  value="1"
+                  checked>
+            <label for="hombre">Hombre</label>
+          </div>
+          <div class="form-check">
+              <input 
+              type="radio"
+              class="form-check-input" 
+              name="sexo" 
+              id="mujer"
+              #mujer="ngModel"
+              [(ngModel)]="modelo.mujer"
+              value="2"
+              >
+              <label for="mujer">Mujer</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="estudios">Estudios</label>
+          <select 
+                name="estudios" 
+                id="estudios"
+                class="form-control"
+                #estudio="ngModel"
+                [(ngModel)]="modelo.estudio"
+                >
+                <option *ngFor="let estudio of estudios" [value]="estudio"> {{ estudio }} </option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="categoria">Categoria</label>
+            <select 
+                  name="categoria" 
+                  id="categoria"
+                  class="form-control"
+                  #categoria="ngModel"
+                  [(ngModel)]="modelo.categoria"
+                  >
+                  <option *ngFor="let categoria of categorias" [value]="categoria"> {{ categoria }} </option>
+            </select>
+          </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="dpi">DPI</label>
+          <input 
+                type="text"
+                name="dpi"
+                id="dpi"
+                class="form-control"
+                #dpi="ngModel"
+                [(ngModel)]="modelo.dpi"
+                placeholder="Ingresa el DPI"
+                required>
+          <div [hidden]="dpi.valid || dpi.untouched" class="alert alert-danger">
+              Este campo es requerido
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fechaDeIngreso">Fecha de Ingreso</label>
+          <input 
+                type="date" 
+                name="fechaDeIngreso" 
+                id="fechaDeIngreso"
+                class="form-control"
+                #fechaDeIngreso="ngModel"
+                [(ngModel)]="modelo.fechaDeIngreso"
+                required>
+          <div [hidden]="fechaDeIngreso.valid || fechaDeIngreso.untouched" class="alert alert-danger">
+            Este campo es requerido
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+</div>

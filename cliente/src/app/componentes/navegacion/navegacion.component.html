@@ -1,0 +1,102 @@
+<div class="navegacion">
+  <h4>Sistema de Prestaciones Laborales</h4>
+  <button id="boton" (click)="toggleMenu()" class="btn btn-primary izquierda"><i class="fas fa-bars"></i></button>
+  <button class="btn btn-primary" (click)="salir()"><i class="fas fa-sign-out-alt"></i></button>
+</div>
+<div class="contenido">
+  <div class="col-md-2 sidebar">
+      <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header">
+              Admin
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <span><i class="fab fa-dashcube"></i></span><a routerLink="/dashboard" class="btn">Dashboard</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header evento" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h5 class="mb-0">
+                <span><i class="fas fa-user-friends"></i></span><a class="btn">Empleados</a>
+                <a class="btn derecha"><span><i class="fas"></i></span></a>
+              </h5>
+            </div>
+        
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group" role="tablist">
+                  <a routerLink="/agregar-empleado" class="list-group-item list-group-item-action" role="tab">Agregar Empleado</a>
+                  <a routerLink="/lista-empleados" class="list-group-item list-group-item-action" role="tab">Lista de los Empleados</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header evento" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+              <h5 class="mb-0">
+                <span><i class="fas fa-address-card"></i></span><a class="btn">Prestaciones</a>
+                <a class="btn derecha"><span><i class="fas"></i></span></a>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                  <div class="list-group" id="list-tab" role="tablist">
+                      <a routerLink="/prestaciones" class="list-group-item list-group-item-action" role="tab">Consultar Prestaciones</a>
+                    </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header evento" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+              <h5 class="mb-0">
+                <span><i class="fas fa-money-bill-alt"></i></span> <a class="btn">Salarios</a>
+                <a class="btn derecha"><span><i class="fas"></i></span></a>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                  <div class="list-group" role="tablist">
+                      <a routerLink="/salarios" class="list-group-item list-group-item-action" role="tab">Salarios de Empleados</a>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header evento" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+              <h5 class="mb-0">
+                <span><i class="fas fa-money-check"></i></span> <a class="btn">Liquidaciones</a>
+                <a class="btn derecha"><span><i class="fas"></i></span></a>
+              </h5>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group" role="tablist">
+                  <a routerLink="/liquidados" class="list-group-item list-group-item-action" role="tab">Empleados Liquidados</a>
+                  <a routerLink="/liquidar-empleado" class="list-group-item list-group-item-action" role="tab">Liquidar Empleado</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header evento" id="headingFive" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+              <h5 class="mb-0">
+                <span><i class="fas fa-user-tie"></i></span> <a class="btn">Administrador</a>
+                <a class="btn derecha"><span><i class="fas"></i></span></a>
+              </h5>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="list-group" role="tablist">
+                  <a routerLink="/administrador" class="list-group-item list-group-item-action" role="tab">Usuarios</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <div class="col-md-9">
+    <router-outlet></router-outlet>
+  </div>
+</div>

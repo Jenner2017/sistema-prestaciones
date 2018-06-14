@@ -1,0 +1,81 @@
+<div class="row" *ngIf="empleadoActivo">
+  <div class="card">
+    <div class="card-header"><h4>{{ empleadoActivo.nombre1 | uppercase }}</h4></div>
+    <div class="card-body">
+        
+        <div class="col-md-12">
+          <form>
+            <div class="row">
+              <div class="form-group  col-md-12">
+                <label for="bono14">Bono 14</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">Q.</div>
+                  </div>
+                  <input 
+                      type="text"
+                      name="bono14"
+                      class="form-control"
+                      [(ngModel)]="empleadoActivo.prestaciones.bono14"
+                      >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-md-12">
+                  <label for="aguinaldo">Aguinaldo</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Q.</div>
+                    </div>
+                    <input 
+                        type="text"
+                        name="aguinaldo"
+                        class="form-control"
+                        [(ngModel)]="empleadoActivo.prestaciones.aguinaldo"
+                        >
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-md-12">
+                  <label for="vacaciones">Vacaciones</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Q.</div>
+                    </div>
+                    <input 
+                        type="text"
+                        name="vacaciones"
+                        class="form-control"
+                        [(ngModel)]="empleadoActivo.prestaciones.vacaciones"
+                        >
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group  col-md-12">
+                  <label for="indemnizacion">Indemnizacion</label>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Q.</div>
+                    </div>
+                    <input 
+                        type="text"
+                        name="indemnizacion"
+                        class="form-control"
+                        [(ngModel)]="empleadoActivo.prestaciones.indemnizacion"
+                        >
+                  </div>
+                </div>
+            </div>
+            <button type="submit" 
+                    class="btn btn-primary"
+                    (click)="actualizar()"
+                    ><i class="far fa-arrow-alt-circle-up"></i></button>
+            <button (click)="cerrar()" class="btn btn-danger"><i class="fas fa-window-close"></i></button>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>

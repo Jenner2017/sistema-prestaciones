@@ -1,0 +1,25 @@
+<h3>Empleados Liquidados</h3>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>DPI</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Area</th>
+        <th>Estado</th>
+        <th>Fecha de Liquidacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados">
+        <td>{{ empleado.dpi }} </td>
+        <td>{{ empleado.nombre1 }} </td>
+        <td>{{ empleado.apellido1 }} </td>
+        <td>{{ empleado.categoria }} </td>
+        <td>{{ estado(empleado.liquidado) }} </td>
+        <td>{{ empleado.fechaDeSalida | date }} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

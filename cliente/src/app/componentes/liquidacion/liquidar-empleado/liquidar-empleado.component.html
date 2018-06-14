@@ -1,0 +1,60 @@
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Area</th>
+        <th>Estado</th>
+        <th>Operaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados;let i=index">
+        <td>{{ i+1 }} </td>
+        <td>{{ empleado.nombre1 }} </td>
+        <td>{{ empleado.categoria }} </td>
+        <td>{{ estado(empleado.liquidado) }} </td>
+        <td>
+          <button 
+                class="btn btn-danger" 
+                (click)="editar(empleado)"
+                data-toggle="modal" data-target="#liquidar"><i class="fas fa-angle-double-down"></i></button>
+          <button class="btn btn-default" (click)="desliquidar(empleado)"><i class="fas fa-angle-double-up"></i></button>
+          <button class="btn btn-info"><i class="fas fa-print"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal fade" id="liquidar" tabindex="-1" role="dialog" aria-labelledby="modal-liquidar" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-liquidar">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #formulario="ngForm" (ngSubmit)="liquidar(formulario)">
+          <div class="form-group">
+            <label for="liquidar">Fecha de Liquidacion</label>
+            <input 
+                  type="date"
+                  id="liquidar"
+                  name="liquidar"
+                  class="form-control"
+                  #fechaDeSalida="ngModel"
+                  [(ngModel)]="modelo.fechaDeSalida"
+                  >
+          </div>
+          <button type="submit" class="btn btn-primary">Liquidar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

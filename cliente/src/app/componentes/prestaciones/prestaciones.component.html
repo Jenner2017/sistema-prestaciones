@@ -1,0 +1,123 @@
+<div *ngIf="estado">
+  <h3>Prestaciones de los empleados</h3>
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Area</th>
+        <th>Prestaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of empleados;let i=index">
+        <td>{{ i+1 }} </td>
+        <td>{{ empleado.nombre1 }} </td>
+        <td>{{ empleado.apellido1 }} </td>
+        <td>{{ empleado.categoria }} </td>
+        <td>
+          <button 
+                class="btn btn-success" 
+                data-toggle="modal" 
+                data-target="#prestaciones" 
+                (click)="editar(empleado)"><i class="fas fa-eye"></i></button>
+          <button
+                class="btn btn-info"
+                (click)="seleccionado(empleado)"
+          ><i class="fas fa-eye-dropper"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-editar-prestaciones [empleadoActivo]="empleadoSeleccionado" ></app-editar-prestaciones>
+
+</div>
+
+<div *ngIf="!estado">
+  <h1>Todos lo empleados fueron liquidados</h1>
+</div>
+
+
+<div class="modal fade" id="prestaciones" tabindex="-1" role="dialog" aria-labelledby="modal-prestaciones-editar" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-prestaciones">Prestaciones</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Area</th>
+                    <th>Salario</th>
+                    <th>Dias Laborados Actualemnte</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{ modelo.nombre1 }} </td>
+                      <td>{{ modelo.apellido1 }} </td>
+                      <td>{{ modelo.categoria }} </td>
+                      <td>{{ modelo.salario }} </td>
+                      <td>{{ diasLaborados }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <th></th>
+                    <th>Prestacion Laboral</th>
+                    <th>Monto</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Indemnizacion</td>
+                      <td>Q {{ modelo.prestaciones.indemnizacion || indemnizacionT }} </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Aguinaldo</td>
+                      <td>Q {{ modelo.prestaciones.aguinaldo || aguinaldo }} </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Bono 14</td>
+                      <td>Q {{ modelo.prestaciones.bono14 || bono14 }} </td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Vacaciones</td>
+                      <td>Q {{ modelo.prestaciones.vacaciones || vacaciones }} </td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Total</td>
+                      <td>Q {{ total }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div> 
+
+
